@@ -1,0 +1,139 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #333;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.section {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-text {
+  font-size: 3rem;
+  color: black;
+  font-weight: bold;
+  position: absolute;
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  z-index: 10;
+  text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black, 0 0 40px black;
+  animation: entranceMove 3s forwards;
+}
+
+.main-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.special-effect {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, transparent, black 30%, transparent 70%);
+  opacity: 0.1;
+  z-index: -1;
+  animation: pulsate 2s infinite alternate;
+}
+
+.message {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff4500;
+  opacity: 1;
+  animation: floatMessage 3s linear infinite;
+}
+
+/* 进场动画 */
+@keyframes entranceMove {
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes pulsate {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 0.3;
+  }
+}
+
+/* 信息飘动动画 */
+@keyframes floatMessage {
+  0% {
+    transform: translate(0, 100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, -100%);
+    opacity: 0;
+  }
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+ .animated-text {
+    font-size: 2.5rem;
+    top: 30%;
+  }
+
+ .main-image {
+    max-width: 90%;
+  }
+}
